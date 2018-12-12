@@ -13,7 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void nextScreen(View view) {
+    public void goToNext(View view) {
+
+        // Go to the next screen
         Intent intent = new Intent(this, ChooseStoryActivity.class);
         startActivity(intent);
     }

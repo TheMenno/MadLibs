@@ -15,10 +15,12 @@ public class OutputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_output);
 
+        // Retrieve the created story
         Intent intent = getIntent();
         String receivedStory = (String) intent.getSerializableExtra("outputStory");
 
-        TextView textView = (TextView) findViewById(R.id.output);
+        // Show the created story
+        TextView textView = findViewById(R.id.output);
         textView.setText(receivedStory);
     }
 
