@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginTop="6dp"
-        android:text="Your Mad Lib story!"
+        android:text="@string/yourstory"
         android:textSize="30sp" />
 
     <TextView
@@ -35,10 +35,10 @@
         android:gravity="center_horizontal|bottom">
 
         <Button
+            android:id="@+id/tosecond"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Make another story"
-            android:onClick="goToFirst" />
+            android:text="@string/newstory" />
 
     </RelativeLayout>
 

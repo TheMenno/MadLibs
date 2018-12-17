@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginTop="6dp"
-        android:text="Fill in the words to complete the story!"
+        android:text="@string/fill"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -30,15 +30,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:text=""/>
+            android:layout_marginTop="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="12dp"
-            android:text=" word(s) left" />
+            android:layout_marginLeft="3dp"
+            android:text="@string/wordsleft" />
 
     </LinearLayout>
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="12dp"
-            android:text="Fill in a/an " />
+            android:text="@string/noun" />
 
         <TextView
             android:id="@+id/placeholder"
@@ -77,6 +77,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="12dp"
+            android:layout_marginLeft="3dp"
             android:text="" />
 
     </LinearLayout>
@@ -90,7 +91,7 @@
             android:id="@+id/inputWords"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next word!" />
+            android:text="@string/nextword" />
 
     </RelativeLayout>
 

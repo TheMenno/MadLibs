@@ -10,42 +10,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="15dp"
-
     tools:context="com.example.menno_000.madlibs.MainActivity" >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
+    <ImageView
+        app:srcCompat="@drawable/madlibs"
+        android:contentDescription="@string/imagedescription"
+        android:id="@+id/madlibs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"/>
 
-        <ImageView
-            app:srcCompat="@drawable/madlibs"
-            android:id="@+id/madlibs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
-
-    </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Welcome to Mad Libs! I will ask you to fill in words to complete a story. You won't be able to see the whole story until you are done filling in all the missing words. That's part of the fun! Click below to get started ..." />
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:text="@string/instruction" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
         android:gravity="center_horizontal|bottom" >
 
         <Button
             android:id="@+id/getstarted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GET STARTED!"
-            android:onClick="goToNext" />
+            android:layout_margin="5dp"
+            android:text="@string/start" />
     </RelativeLayout>
 
 </LinearLayout>

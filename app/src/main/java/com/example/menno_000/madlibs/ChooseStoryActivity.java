@@ -16,7 +16,7 @@ public class ChooseStoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_story);
 
-        // Setting up the listeners
+        // Setting up listeners
         findViewById(R.id.simple).setOnClickListener(new Listener());
         findViewById(R.id.tarzan).setOnClickListener(new Listener());
         findViewById(R.id.university).setOnClickListener(new Listener());
@@ -26,10 +26,10 @@ public class ChooseStoryActivity extends AppCompatActivity {
     }
 
 
+    // Get the story that was chosen and give it to the next screen
     public class Listener implements View.OnClickListener {
 
         @Override
-        // Get the story that was chosen and give it to the next screen
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.simple:
@@ -57,6 +57,7 @@ public class ChooseStoryActivity extends AppCompatActivity {
                     String[] sources = new String[] {"madlib0_simple.txt", "madlib1_tarzan.txt", "madlib2_university.txt", "madlib3_clothes.txt", "madlib4_dance.txt"};
                     String randomSource = sources[new Random().nextInt(sources.length)];
 
+                    // Go to the next screen
                     source = randomSource;
                     goToNext();
                     break;
@@ -64,9 +65,10 @@ public class ChooseStoryActivity extends AppCompatActivity {
         }
     }
 
+
+    // Go to the next screen
     public void goToNext() {
 
-        // Go to the next screen
         Intent intent = new Intent(this, WordsActivity.class);
         intent.putExtra("pickedStory", source);
 

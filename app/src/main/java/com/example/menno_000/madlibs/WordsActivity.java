@@ -13,6 +13,7 @@ import java.io.InputStream;
 
 public class WordsActivity extends AppCompatActivity {
 
+    // Initialising variables
     Story story;
     String source;
     int numOfWords;
@@ -48,20 +49,21 @@ public class WordsActivity extends AppCompatActivity {
     }
 
 
+    // Save the story on rotation
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        // Save the story on rotation
         outState.putSerializable("story", story);
     }
 
 
+    // Restore the story on rotation
     @Override
     protected void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
 
-        // Restore the story on rotation
+        // Retrieve the story
         story = (Story) inState.getSerializable("story");
 
         // Reset the box that shows the remaining amount of words to be typed
@@ -76,9 +78,9 @@ public class WordsActivity extends AppCompatActivity {
     }
 
 
+    // Open the correct storyfile based on the chosen story and return the story
     public Story inputStory(String storySource) {
 
-        // Open the correct storyfile based on the chosen story and return the story
         Context context = getApplicationContext();
 
         try {
@@ -93,6 +95,7 @@ public class WordsActivity extends AppCompatActivity {
     }
 
 
+    // Listener for the "Next word!" button, go to the next screen
     public class Listener implements View.OnClickListener {
 
         @Override
@@ -102,43 +105,49 @@ public class WordsActivity extends AppCompatActivity {
     }
 
 
+    // Create the story
     public void createStory() {
 
+        // Initialising variables
         EditText editText = findViewById(R.id.storyWords);
         String inputText = editText.getText().toString();
 
+        // // Make sure that something is typed in
         if(inputText.matches("")) {
 
-            // Make sure that something is typed in
             editText.setText("Please enter a word");
         } else {
 
-            // Reset the inputfield
-            editText.setText("");
+            // Add the new word to the story
             story.fillInPlaceholder(inputText);
 
-            // Set a new value for the box that shows the remaining amount of words to be typed
-            TextView wordsRemaining = findViewById(R.id.remainingWords);
-            numOfWords = story.getPlaceholderRemainingCount();
-            wordsRemaining.setText(String.format("%d", numOfWords));
-
-            // Set a new hint for the box that shows what to type
-            TextView placeholder = findViewById(R.id.placeholder);
-            placeHolder = story.getNextPlaceholder();
-            placeholder.setText(placeHolder);
-
+            // Go to the outputscreen if the story is completely filled in
             if (story.isFilledIn() == true) {
 
-                // Go to the outputscreen if the story is completely filled in
                 finalStory = story.toString();
                 goToNext();
+            } else {
+
+                // Reset the input field
+                editText.setText("");
+
+                // Set a new value for the box that shows the remaining amount of words to be typed
+                TextView wordsRemaining = findViewById(R.id.remainingWords);
+                numOfWords = story.getPlaceholderRemainingCount();
+                wordsRemaining.setText(String.format("%d", numOfWords));
+
+                // Set a new hint for the box that shows what to type
+                TextView placeholder = findViewById(R.id.placeholder);
+                placeHolder = story.getNextPlaceholder();
+                placeholder.setText(placeHolder);
             }
         }
     }
 
+
+    // Go to the next screen and give the story
     public void goToNext() {
 
-        // Go to the next screen
         Intent intent = new Intent(this, OutputActivity.class);
         intent.putExtra("outputStory", finalStory);
 

@@ -11,11 +11,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Setting up the listener
+        findViewById(R.id.getstarted).setOnClickListener(new MainActivity.Listener());
     }
 
-    public void goToNext(View view) {
+    // Listener for the "Get started!" button, go to the next screen
+    public class Listener implements View.OnClickListener {
 
-        // Go to the next screen
+        @Override
+        public void onClick(View view) {
+            goToNext();
+        }
+    }
+
+    // Go to the next screen
+    public void goToNext() {
         Intent intent = new Intent(this, ChooseStoryActivity.class);
         startActivity(intent);
     }
